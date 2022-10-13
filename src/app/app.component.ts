@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
+import { RequestService } from './services/request.service';
 
 @Component({
   selector: 'app-root',

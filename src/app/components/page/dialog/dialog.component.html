@@ -1,0 +1,39 @@
+<div class="container">
+    <!--Button close-->
+    <div class="dialog-close">
+        <mat-dialog-actions>
+            <button mat-button mat-dialog-close>
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-dialog-actions>  
+    </div>     
+    <!--Button close-->
+
+    <!--Content Dialog-->
+    <mat-dialog-content>
+        <!-- <img [src]="data.background_image" style="width: 100vh">
+        <h1 mat-dialog-title>{{data.name | uppercase}}</h1>
+         -->
+        <mat-card style="background-color: #0d1117;">
+            
+            <img mat-card-image [src]="data.background_image" style="width: 100vh">
+
+            <mat-card-title>
+                <h1 mat-dialog-title>{{data.name | uppercase}}</h1>
+            </mat-card-title>
+
+            <mat-card-content>
+                <p>{{data.released}}</p>
+                <p>{{data.rating}}</p>
+
+                <div *ngFor="let platform of data.parent_platforms">
+                    <p>{{platform.platform.name}}</p>
+                </div>
+                <p>{{data.updated}}</p>
+            </mat-card-content>
+        </mat-card>
+        
+        
+    </mat-dialog-content>
+    <!--Content Dialog-->
+</div>

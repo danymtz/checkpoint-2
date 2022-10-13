@@ -1,0 +1,58 @@
+:host {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0px;
+  }
+
+  .mat-card{
+    background-color: #161b22;
+    border-radius: 10px;
+    border-color: #21262d;
+  }
+
+  .mat-form-field {
+    width: 100%;
+    min-width: 300px;
+    color: white;
+  }
+
+  mat-card-title,
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+    color: white;
+  }
+
+  .error-container{
+    display: flex;
+    justify-content: center;
+
+    .error {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        width: 250px;
+        color: white;
+        background-color: #2f1a1e;
+      }
+
+      .icon-error{
+        color: red;
+      }
+  }
+  
+
+  .button {
+    display: flex;
+    justify-content: center;
+    
+    button{
+        background-color: #238636;
+        padding: 0 35px;
+
+        button :hover{
+            background-color: #2f1a1e;
+        }
+    }
+  }
