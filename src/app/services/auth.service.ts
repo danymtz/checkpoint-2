@@ -10,12 +10,20 @@ export class AuthService {
   constructor() { }
 
   login (username: string, password: string): boolean{
-
-    if (username == 'danymtz' && password == 'dany123') return this.statusLogin = true;
+    
+    if (username == 'danymtz' && password == 'dany123') {
+      localStorage.setItem('auth', 'true');
+      return this.statusLogin = true;
+    }
     else return false
   }
 
   loginCheck (): boolean {
+    this.statusLogin = (localStorage.getItem('auth'))==="true";
     return this.statusLogin;
+  }
+
+  logout (): void {
+    localStorage.setItem('auth', 'false');
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { RequestService } from 'src/app/services/request.service';
 
 @Component({
   selector: 'app-sidenav',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor() { }
+  genres$!: Observable<any>;
+
+  constructor(private requestService: RequestService) { }
 
   ngOnInit(): void {
+    this.genres$ = this.requestService.getGenres()
   }
 
 }

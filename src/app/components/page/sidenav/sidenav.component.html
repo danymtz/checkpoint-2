@@ -1,13 +1,19 @@
 <div class="sidenav-container">
+
     <mat-nav-list>
         <div class="img-container">
             <img src="./assets/user.png" alt="" class="img1">
         </div>
-        <a mat-list-item routerLink="/movies/home" routerLinkActive="selec" style="color: white;">Home</a>
-        <a mat-list-item routerLink="/movies/action" routerLinkActive="selec" style="color: white;">Action</a>
-        <a mat-list-item routerLink="/movies/adventure" routerLinkActive="selec" style="color: white;">Adventure</a>
-        <a mat-list-item routerLink="/movies/horror" routerLinkActive="selec" style="color: white;">Horror</a>
-        <a mat-list-item routerLink="/movies/comedia" routerLinkActive="selec" style="color: white;">Comedia</a>
-        <a mat-list-item routerLink="/movies/crime" routerLinkActive="selec" style="color: white;">Crime</a>
+
+        <div *ngIf="genres$ | async as genres">
+            <div *ngFor="let genre of genres">
+                <a mat-list-item routerLink="/games/genres/{{genre.id}}" routerLinkActive="selec" style="color: white;">{{genre.name}}</a>
+                <p></p>
+            </div>
+        </div>
+        
     </mat-nav-list>
+
+    
+
 </div>

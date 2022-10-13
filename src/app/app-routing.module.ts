@@ -20,6 +20,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'games/genres/:id',
+    component: FirstComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: '**',
     redirectTo: 'login'
   }

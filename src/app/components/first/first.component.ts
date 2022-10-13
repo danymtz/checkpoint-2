@@ -16,9 +16,7 @@ export class FirstComponent implements OnInit {
   constructor (private requestService: RequestService, public dialog: MatDialog){ }
 
   ngOnInit(): void {    
-    this.games$ = this.requestService.getGames().pipe(
-      tap (console.log)
-    )
+    this.games$ = this.requestService.getGames();
   }
 
   openDialog(movie: any[]): void {

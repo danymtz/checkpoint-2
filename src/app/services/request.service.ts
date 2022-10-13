@@ -7,17 +7,26 @@ import { map, Observable, tap } from 'rxjs';
 })
 export class RequestService {
 
-  private API: string = 'https://api.rawg.io/api/games';
+  private games: string = 'https://api.rawg.io/api/games';
+  private genres: string = 'https://api.rawg.io/api/genres';
   private token: string = '?key=d414a931adcb4360aa5f521c9036f040';
-  private pages: string = `&page_size=11` 
+  private pages: string = `&page_size=25` 
 
   constructor(private httpClient: HttpClient) { }
 
   getGames(){ 
-    return this.httpClient.get(this.API+this.token+this.pages).pipe(
+    return this.httpClient.get(this.games+this.token+this.pages).pipe(
       map((response: any) => {
         return response.results
       })
     ); 
   } 
+
+  getGenres(){ 
+    return this.httpClient.get(this.genres+this.token+this.pages).pipe(
+      map((response: any) => {
+        return response.results
+      })
+    ); 
+  }
 }

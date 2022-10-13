@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { RequestService } from 'src/app/services/request.service';
 
 @Component({
@@ -14,13 +16,17 @@ export class ToolbarComponent implements OnInit {
   public name: string = 'gta';
   public game$!: Observable<any>;
 
-  constructor(private requestService: RequestService) { }
+  constructor(
+    private requestService: RequestService, 
+    private authService: AuthService, 
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.game$ = this.requestService.getGames().pipe(
-      tap(console.log) 
-      
-    )
+    this.game$ = this.requestService.getGames();
   }
 
+  onLogout() {
+    this.authService.logout();
+    this.router.navigate(['login']);
+  }
 }
