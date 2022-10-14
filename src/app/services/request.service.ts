@@ -29,4 +29,12 @@ export class RequestService {
       })
     ); 
   }
+
+  getGamesbyGenre(id: any){
+    return this.httpClient.get(this.games+this.token+this.pages+'&genres='+id).pipe(
+      map((response: any) => {
+        return response.results
+      })
+    ); 
+  }
 }
