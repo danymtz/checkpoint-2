@@ -11,20 +11,18 @@
 
     <!--Content Dialog-->
     <mat-dialog-content>
-        <!-- <img [src]="data.background_image" style="width: 100vh">
-        <h1 mat-dialog-title>{{data.name | uppercase}}</h1>
-         -->
+       
         <mat-card style="background-color: #0d1117;">
             
-            <img mat-card-image [src]="data.background_image" style="width: 100vh">
+            <img mat-card-image [src]="data.background_image" >
 
             <mat-card-title>
                 <h1 mat-dialog-title>{{data.name | uppercase}}</h1>
             </mat-card-title>
 
             <mat-card-content>
-                <p>{{data.released}}</p>
-                <p>{{data.rating}}</p>
+                <p>released: {{data.released}}</p>
+                <p>Raiting: {{data.rating}}</p>
 
                 <div *ngFor="let platform of data.parent_platforms">
                     <p>{{platform.platform.name}}</p>

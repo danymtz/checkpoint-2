@@ -4,19 +4,29 @@
     </mat-drawer>
 
     <mat-drawer-content>
-        <app-toolbar [showSideNav] = "mySideNav"></app-toolbar>
 
         <div class="games-container">
             <div *ngIf="games$ | async as games" class="games">
-
+                
                 <div *ngFor="let game of games" class="game">
-                    <div class="img-container">
-                        <img [src]="game.background_image" (click)="openDialog(game)" style="height: 200px;">
-                    </div>
-                    <p>{{game.name}}</p>
+                    <!-- Mat Card -->
+                    <mat-card>
+                        <!-- Imágen del juego -->
+                        <div class="img-container">
+                            <img mat-card-imag [src]="game.background_image" (click)="openDialog(game)" class="crop">
+                        </div>
+                        <!-- Texto incrustado sobre la imagen -->
+                        <div class="title-container">
+                            <mat-card-title>
+                                <p>{{game.name}}</p>
+                            </mat-card-title>
+                        </div>
+                        
+                    </mat-card>
                 </div>
             </div>
         </div>
         
+        <app-toolbar [showSideNav] = "mySideNav"></app-toolbar>
     </mat-drawer-content>
 </mat-drawer-container>

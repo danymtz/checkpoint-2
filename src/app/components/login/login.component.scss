@@ -1,7 +1,7 @@
 :host {
     display: flex;
     justify-content: center;
-    margin: 100px 0px;
+    margin-top: 180px;
   }
 
   .mat-card{
@@ -10,6 +10,7 @@
     border-color: #21262d;
   }
 
+  // Campos de input
   .mat-form-field {
     width: 100%;
     min-width: 300px;
@@ -20,7 +21,7 @@
   mat-card-content {
     display: flex;
     justify-content: center;
-    color: white;
+    color: white; // Color de texto: login
   }
 
   .error-container{
@@ -42,7 +43,7 @@
       }
   }
   
-
+  // Botón de Sign In
   .button {
     display: flex;
     justify-content: center;
