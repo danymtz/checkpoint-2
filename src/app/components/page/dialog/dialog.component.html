@@ -1,37 +1,66 @@
-<div class="container">
-    <!--Button close-->
-    <div class="dialog-close">
-        <mat-dialog-actions>
-            <button mat-button mat-dialog-close>
-                <mat-icon>close</mat-icon>
-            </button>
-        </mat-dialog-actions>  
-    </div>     
-    <!--Button close-->
-
+<div class="dialog-container">
     <!--Content Dialog-->
     <mat-dialog-content>
-       
-        <mat-card style="background-color: #0d1117;">
-            
-            <img mat-card-image [src]="data.background_image" >
 
-            <mat-card-title>
-                <h1 mat-dialog-title>{{data.name | uppercase}}</h1>
-            </mat-card-title>
-
-            <mat-card-content>
-                <p>released: {{data.released}}</p>
-                <p>Raiting: {{data.rating}}</p>
-
-                <div *ngFor="let platform of data.parent_platforms">
+        <mat-card>
+            <!-- -------- SIGUIENTE IMÁGEN --------- -->
+            <div class="next-image">
+                <mat-dialog-actions>
+                    <button mat-button (click)="nextImage()">
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                    </button>
+                </mat-dialog-actions>  
+            </div>
+            <!-- -------- ANTERIOR IMÁGEN --------- -->
+            <div class="previous-image">
+                <mat-dialog-actions>
+                    <button mat-button (click)="previousImage()">
+                        <mat-icon>keyboard_arrow_left</mat-icon>
+                    </button>
+                </mat-dialog-actions>  
+            </div>
+            <!-- -------- BOTÓN CERRAR --------- -->
+            <div class="dialog-close">
+                <mat-dialog-actions>
+                    <button mat-button mat-dialog-close>
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-dialog-actions>  
+            </div>
+            <!-- ---------- IMÁGEN ----------- -->
+            <div class="image-container">
+                <!-- Cuando es una imagen fija -->
+                <!-- <img mat-card-image [src]="data.background_image"> -->
+                
+                <!-- Varias iamgenes -->
+                <img mat-card-image [src]="data.short_screenshots[image].image" >
+            </div>
+            <!-- ---------- TÍTULO  ----------- -->
+            <div class="title-container">
+                <mat-card-title>
+                    <h1 mat-dialog-title>{{data.name | uppercase}}</h1>
+                </mat-card-title>
+            </div>
+        </mat-card> 
+        
+        <!-- ---------- INFORMACIÓN ----------- -->
+        <div class="info-container">
+            <div class="platforms">
+                <div *ngFor="let platform of data.parent_platforms" class="platform">
+                    <img src="{{platform.platform.name | icons}}"> 
                     <p>{{platform.platform.name}}</p>
                 </div>
-                <p>{{data.updated}}</p>
-            </mat-card-content>
-        </mat-card>
-        
-        
+            </div>
+
+            <label class="raiting">Raiting: </label>
+            <label class="stars-raiting">{{data.rating | stars}} </label>
+            <label class="raiting"> {{data.rating | convert}}</label> <br><br>
+
+            <p>Released: {{data.released | date}} </p>
+            <p>Updated: {{data.updated | date}}</p>            
+        </div>
     </mat-dialog-content>
     <!--Content Dialog-->
 </div>
+
+

@@ -15,6 +15,7 @@
                         <div class="img-container">
                             <img mat-card-imag [src]="game.background_image" (click)="openDialog(game)" class="crop">
                         </div>
+                        
                         <!-- Texto incrustado sobre la imagen -->
                         <div class="title-container">
                             <mat-card-title>
@@ -28,5 +29,6 @@
         </div>
         
         <app-toolbar [showSideNav] = "mySideNav"></app-toolbar>
+
     </mat-drawer-content>
 </mat-drawer-container>

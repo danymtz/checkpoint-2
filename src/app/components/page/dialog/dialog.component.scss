@@ -1,27 +1,99 @@
 .mat-dialog-container {
     padding: 0px !important;
+    width: 80vh !important;             // Ancho de todo el Dialog
     overflow: hidden !important;
-    width: 80vh !important;
-    height: 90vh !important;
 }
 
-.container {
-    width: 80vh;
-    height: 90vh;
-    
+.dialog-container {
+    width: 80vh;                        // Ajusta ancho de contenedor al del dialogo
     background-color: #0D1117;
-    color: beige;
 
-    .mat-dialog-content {
-        max-height: none !important;
-    }
+    mat-dialog-content {
+        max-height: none !important;    // Ajusta el contenedor al tamaño del contenedor padre
+        background-color: #0D1117;
 
-    .dialog-close{
-        display: flex;
-        justify-content: flex-end;
-    }
+        mat-card{
+            padding: 0;
+            background-color: #0D1117;
+        } 
+        mat-card-title{
+            position: absolute;                 // Para que el texto quede encima de la imagen
+            max-width: max-content;             // Para que el ancho del texto se ajuste al contenedor de la imagen
+            background-color: rgba(0, 0, 0, 0.644);
+            padding-top: 20px;
+            padding-bottom: 5px;
+            padding-left: 5px;
+            padding-right: 5px;
+            bottom: 0;                          // Posiciona este contenedor hasta el borde inferior de su contenedor padre
+            margin: 0;                          // Elimina cualquier borde
+            min-width: -webkit-fill-available;  // Ajusta el padding derecho hasta rellenar el contenedor
+        }
 
-    mat-card-title{
-        background-color: rgba(0, 0, 0, 0.123);
+        .dialog-close{
+            position: absolute;                 // Para que el texto quede encima de la imagen
+            max-width: max-content;             // Para que el ancho del texto se ajuste al contenedor de la imagen
+            top: 0;                          // Posiciona este contenedor hasta el borde inferior de su contenedor padre
+            margin: 0;                          // Elimina cualquier borde
+            right: 0;
+
+            button{
+                background-color: rgba(0, 0, 0, 0.644);
+            }
+        }
+        // ----------------- Desplazamiento de imagenes ---------------
+        .next-image{
+            position: absolute;                 // Para que el texto quede encima de la imagen
+            max-width: max-content;             // Para que el ancho del texto se ajuste al contenedor de la imagen
+            top: 40%;                          // Posiciona este contenedor hasta el borde inferior de su contenedor padre
+            margin: 0;                          // Elimina cualquier borde
+            right: 0;
+
+            button{
+                background-color: rgba(0, 0, 0, 0.400);
+            }
+        }
+
+        .previous-image{
+            position: absolute;                 // Para que el texto quede encima de la imagen
+            max-width: max-content;             // Para que el ancho del texto se ajuste al contenedor de la imagen
+            top: 40%;                          // Posiciona este contenedor hasta el borde inferior de su contenedor padre
+            margin: 0;                          // Elimina cualquier borde
+            left: 0;
+
+            button{
+                background-color: rgba(0, 0, 0, 0.400);
+            }
+        }
+
+        .info-container{
+            padding: 5px 15px;
+            font-size: 20px;
+
+            .platforms{
+                display: flex; 
+                justify-content: space-around; 
+                align-items: center;
+
+                .platform{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    img{
+                        width: 25px; 
+                        filter: contrast(0);
+                    }
+                }
+            }
+
+            .raiting{
+                font-size: 25px;
+            }
+
+            .stars-raiting{
+                font-size: 25;
+                color: yellow;
+            }
+        }
     }
 }

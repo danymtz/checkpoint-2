@@ -20,6 +20,9 @@ import {MatSidenavModule} from '@angular/material/sidenav'
 import {MatListModule} from '@angular/material/list';
 import {MatDialogModule} from '@angular/material/dialog';
 import { DialogComponent } from './components/page/dialog/dialog.component';
+import { StarsPipe } from './libs/pipes/stars.pipe';
+import { IconsPipe } from './libs/pipes/icons.pipe';
+import { ConvertRatingPipe } from './libs/pipes/convert-rating.pipe';
 
 
 
@@ -30,7 +33,10 @@ import { DialogComponent } from './components/page/dialog/dialog.component';
     LoginComponent,
     ToolbarComponent,
     SidenavComponent,
-    DialogComponent
+    DialogComponent,
+    StarsPipe,
+    IconsPipe,
+    ConvertRatingPipe
   ],
   imports: [
     BrowserModule,
