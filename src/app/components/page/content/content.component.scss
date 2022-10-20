@@ -1,0 +1,77 @@
+:host{
+    --border: 8px;
+}
+
+// Quitar contorno de Angular Material
+mat-card{
+    padding: 0px;
+    border-radius: var(--border);
+}
+
+.games-container{
+    // Espacio entre los juegos y el navbar
+    margin-top: 12vh;
+
+    .games{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    // AJUSTAR IMAGEN AL TAMAÑO DE UNA IMÁGEN AL DE  UN CONTENEDOR
+    .img-container {
+        width: 200px;                   // Ancho del contenedor
+        height: 250px;                  // Alto del contenedor
+        overflow: hidden;               // Para que la imagen no sobresalga del tamaño establecido
+        position: relative;             // Importante para centrar
+
+        border-radius: var(--border);
+    }
+    .img-container > .crop {
+        position: absolute;             // Importante para recortar y centrar
+        left: -100%;
+        right: -100%;
+        top: -100%;
+        bottom: -100%;
+        margin:auto;
+        min-height: 100%;
+        min-width: 100%;
+
+        border-radius: var(--border);
+    }
+
+    img {
+        height: 300px;                  //Tamaño real de la imagen
+    }
+    
+    // Espaciado entre imagenes de juegos
+    .game{
+        padding: 15px;
+    }
+
+    .game :hover .img-container{
+        box-shadow: 0 0 60px rgba(4, 134, 4, 0.7);
+        cursor: pointer;
+    }
+
+    // CONFIGURACIÓN PARA INCRUSTAR TEXTO ENCIMA DE LA IMAGEN
+    mat-card-title{
+        position: absolute;            // Para que el texto quede encima de la imagen
+        max-width: max-content;        // Para que el ancho del texto se ajuste al contenedor de la imagen
+        background-color: rgba(0, 0, 0, 0.644);
+        padding-top: 20px;
+        padding-bottom: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+        bottom: 0;                  // Posiciona este contenedor hasta el borde inferior de su contenedor padre
+        margin: auto;               // Elimina cualquier margen
+        min-width: -webkit-fill-available;  // Ajusta el padding derecho hasta rellenar el contenedor
+
+        border-bottom-left-radius: var(--border);
+        border-bottom-right-radius: var(--border);
+
+        p{
+            font-size: 18px;
+        }
+    }
+}

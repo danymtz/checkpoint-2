@@ -14,5 +14,26 @@ $theme-dark: mat-dark-theme($app-primary, $app-accent, $app-warn);
 html, body { 
     height: 100%; 
     background-color: #0d1117;
+    padding: 0;
 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-drawer-inner-container {
+    overflow: hidden !important;
+}
+
+// SCROLL PERSONALIZADO
+*::-webkit-scrollbar {
+    appearance: none;
+    width: 5px;
+}
+*::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #303134;
+    border-radius: 10px;
+}
+*::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}

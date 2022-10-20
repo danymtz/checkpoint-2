@@ -23,6 +23,7 @@ import { DialogComponent } from './components/page/dialog/dialog.component';
 import { StarsPipe } from './libs/pipes/stars.pipe';
 import { IconsPipe } from './libs/pipes/icons.pipe';
 import { ConvertRatingPipe } from './libs/pipes/convert-rating.pipe';
+import { ContentComponent } from './components/page/content/content.component';
 
 
 
@@ -36,7 +37,8 @@ import { ConvertRatingPipe } from './libs/pipes/convert-rating.pipe';
     DialogComponent,
     StarsPipe,
     IconsPipe,
-    ConvertRatingPipe
+    ConvertRatingPipe,
+    ContentComponent
   ],
   imports: [
     BrowserModule,

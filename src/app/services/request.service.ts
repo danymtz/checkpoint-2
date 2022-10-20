@@ -12,10 +12,12 @@ export class RequestService {
   private token: string = '?key=d414a931adcb4360aa5f521c9036f040';
   private pages: string = `&page_size=25` 
 
+  juegos$!: Observable<any>;
+
   constructor(private httpClient: HttpClient) { }
 
   getGames(){ 
-    return this.httpClient.get(this.games+this.token+this.pages).pipe(
+    return this.httpClient.get(this.games+this.token+this.pages+'&genres='+14).pipe(
       map((response: any) => {
         return response.results
       })
@@ -33,8 +35,9 @@ export class RequestService {
   getGamesbyGenre(id: any){
     return this.httpClient.get(this.games+this.token+this.pages+'&genres='+id).pipe(
       map((response: any) => {
+        this.juegos$ = response.results;
         return response.results
       })
-    ); 
+    );
   }
 }

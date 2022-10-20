@@ -4,7 +4,7 @@ import {
   RouterStateSnapshot,
   ActivatedRouteSnapshot
 } from '@angular/router';
-import { map, Observable, of } from 'rxjs';
+import { map, Observable, of, tap } from 'rxjs';
 import { RequestService } from 'src/app/services/request.service';
 
 @Injectable({
@@ -18,17 +18,8 @@ export class GetGenreResolver implements Resolve<boolean> {
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
 
-    const idGenre: any = route.params['id'];
+    const idGenre: any = route.params['id'];      // Leemos el id del url: games/genres/:id
     
-    this.data$ = this.requestService.getGamesbyGenre(idGenre).pipe(
-      map ((response: any) => {
-        return response.results
-      })
-    );
-
-    console.log(this.data$);
-    
-
-    return of(true);
+    return of (idGenre);
   }
 }

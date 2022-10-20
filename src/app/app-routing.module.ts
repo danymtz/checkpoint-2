@@ -25,7 +25,7 @@ const routes: Routes = [
     component: FirstComponent,
     canActivate: [AuthGuard],
     resolve: {
-      character: GetGenreResolver
+      genre: GetGenreResolver
     }
   },
   {

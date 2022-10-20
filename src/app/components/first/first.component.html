@@ -1,34 +1,15 @@
 <mat-drawer-container class="example-container" autosize>
+
     <mat-drawer #mySideNav class="example-sidenav" mode="side">
-        <app-sidenav></app-sidenav>
+        <app-sidenav (propagar) ="games$ = $event"></app-sidenav>
     </mat-drawer>
 
     <mat-drawer-content>
 
-        <div class="games-container">
-            <div *ngIf="games$ | async as games" class="games">
-                
-                <div *ngFor="let game of games" class="game">
-                    <!-- Mat Card -->
-                    <mat-card>
-                        <!-- Imágen del juego -->
-                        <div class="img-container">
-                            <img mat-card-imag [src]="game.background_image" (click)="openDialog(game)" class="crop">
-                        </div>
-                        
-                        <!-- Texto incrustado sobre la imagen -->
-                        <div class="title-container">
-                            <mat-card-title>
-                                <p>{{game.name}}</p>
-                            </mat-card-title>
-                        </div>
-                        
-                    </mat-card>
-                </div>
-            </div>
-        </div>
+        <app-content [games$] = "games$"></app-content>
         
         <app-toolbar [showSideNav] = "mySideNav"></app-toolbar>
 
     </mat-drawer-content>
+    
 </mat-drawer-container>

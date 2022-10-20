@@ -1,5 +1,4 @@
 <div class="sidenav-container">
-
     <mat-nav-list>
         <div class="img-container">
             <img src="./assets/user.png" alt="" class="img1">
@@ -7,13 +6,11 @@
 
         <div *ngIf="genres$ | async as genres">
             <div *ngFor="let genre of genres">
-                <a mat-list-item routerLink="/games/genres/{{genre.id}}" routerLinkActive="selec" style="color: white;">{{genre.name}}</a>
+                <a mat-list-item routerLink="/games/genres/{{genre.id}}" routerLinkActive="selec" style="color: white;"
+                (click) = "showGenre(genre.id)">{{genre.name}}</a>
                 <p></p>
             </div>
         </div>
         
     </mat-nav-list>
-
-    
-
 </div>

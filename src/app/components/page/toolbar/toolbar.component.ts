@@ -13,6 +13,7 @@ export class ToolbarComponent implements OnInit {
   
   @Input()
   public showSideNav!: any;
+  
   public name: string = 'gta';
   public game$!: Observable<any>;
 

@@ -1,11 +1,31 @@
-.img1{
-  width: 190px;
+*{
+  margin: 0;
+  padding: 0;
 }
+.sidenav-container{
+  position: relative;
+  //top: 0; 
 
-.selec {
-  font-size: 20px;
-  color: white;
-  border-left: 5px solid #238636;
+  mat-nav-list{
+    height: 100vh;  
+    width: min-content !important;    // Ajusta el texto al tamaño del sidenav    
+    overflow-X: hidden;             // Ocultar el scroll horizontal
+  }
+
+  .img-container{
+    padding: 0;
+    margin: 0;
+    
+    .img1{
+      width: 180px;
+    }
+  }
+  
+  .selec {
+    font-size: 20px;
+    color: white;
+    border-left: 5px solid #238636;
+  }
 }
 
 
