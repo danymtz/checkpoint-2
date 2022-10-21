@@ -15,18 +15,21 @@ export class ContentComponent implements OnInit {
   private genre!: number;
 
   @Input()
-  public games$!: Observable<any>;                // Juegos obtenidos del sidenav
+  public games$!: Observable<any>;                                    // Juegos obtenidos del sidenav
 
-  constructor(public dialog: MatDialog, private activateRoute: ActivatedRoute, private requestService: RequestService) { }
+  constructor(public dialog: MatDialog, 
+    private activateRoute: ActivatedRoute, 
+    private requestService: RequestService) { }
 
   ngOnInit(): void {
-    this.genre = this.activateRoute.snapshot.data['genre'];    
-    if (this.genre == undefined) 
+    this.genre = this.activateRoute.snapshot.data['genre'];           // Si el usuario actualiza: obtenenemos el ID de nuevo
+    if (this.genre == undefined)                                      // Si no está definido 
       this.genre = 4;
     
-    this.games$ = this.requestService.getGamesbyGenre(this.genre);   // Carga un género por defecto (Acción)
+    this.games$ = this.requestService.getGamesbyGenre(this.genre);    // Carga un género por defecto (Acción)
   }
 
+  ////////////////// LLAMADA AL MODAL //////////////////
   openDialog(objectReceive: any[]): void {
     this.dialog.open(DialogComponent, {data: objectReceive});    
   }

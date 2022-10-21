@@ -4,6 +4,7 @@ import { FirstComponent } from './components/first/first.component';
 import { LoginComponent } from './components/login/login.component';
 import { GetGenreResolver } from './libs/resolvers/get-genre.resolver';
 import { AuthGuard } from './services/guards/auth.guard';
+import { BlockLoginGuard } from './services/guards/block-login.guard';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [BlockLoginGuard]
   },
   {
     path: 'games',

@@ -1,9 +1,10 @@
 <div class="sidenav-container">
     <mat-nav-list>
+        <!-- -------------- AVATAR DEL USUARIO ------------>
         <div class="img-container">
             <img src="./assets/user.png" alt="" class="img1">
         </div>
-
+        <!-- ------------- LISTA DE GENEROS ------------>
         <div *ngIf="genres$ | async as genres">
             <div *ngFor="let genre of genres">
                 <a mat-list-item routerLink="/games/genres/{{genre.id}}" routerLinkActive="selec" style="color: white;"

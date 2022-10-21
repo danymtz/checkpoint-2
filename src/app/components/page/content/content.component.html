@@ -3,12 +3,12 @@
         <div *ngFor="let game of games" class="game">
             <!-- Mat Card -->
             <mat-card>
-                <!-- Imágen del juego -->
+                <!--------------- Imágen del juego ------------------->
                 <div class="img-container">
                     <img mat-card-imag [src]="game.background_image" (click)="openDialog(game)" class="crop">
                 </div>
                 
-                <!-- Texto incrustado sobre la imagen -->
+                <!--------- Texto incrustado sobre la imagen --------->
                 <div class="title-container">
                     <mat-card-title>
                         <p>{{game.name}}</p>

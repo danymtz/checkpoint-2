@@ -27,7 +27,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   onLogout() {
-    this.authService.logout();
-    this.router.navigate(['login']);
+    this.authService.logout();                    // Al oprimir el botón se deslogea
+    this.router.navigate(['login']);              // Redirige al login
   }
 }

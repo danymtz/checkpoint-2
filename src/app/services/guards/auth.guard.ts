@@ -7,16 +7,13 @@ import { AuthService } from '../auth.service';
 })
 export class AuthGuard implements CanActivate {
 
-  block: boolean = false;
-
   constructor (private authService: AuthService, private router: Router){}
 
   canActivate(): boolean {
     
-    if (!(this.block=this.authService.loginCheck())) {
-      this.router.navigate(['login']);
-      return this.block;
-    } else return true
-      
+    if (!this.authService.loginCheck()) {         // Si el usuario NO(!) está logeado (false)
+      this.router.navigate(['login']);            // Redirige al login
+      return false                                // (false) Niega el acceso a la ruta               
+    } else return true                            // (true) Permite el acceso a la ruta
   }
 }
